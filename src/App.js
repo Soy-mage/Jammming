@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+import SearchResults from "./searchResults/searchResults.js";
+import SearchBar from './search/search.js';
+import Playlist from './playlist/playlist.js';
+import React, { useState } from 'react';
 
 function App() {
+  const [searchResults, setSearchResults] = useState([
+  {
+    name: "example track name 1",
+    artist: "example track artist 1",
+    album: "example track album",
+    id: 1,
+  },
+  {
+    name: "example track name 1",
+    artist: "example track artist 1",
+    album: "example track album",
+    id: 2,
+  },
+]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>
+        Ja<span className={styles.highlight}>mmm</span>ing
+      </h1>
+      <div className={styles.App}>
+        {/* <Search /> */}
+        <div className={styles['App-playlist']}>
+          <SearchResults userSearchResult={searchResults}/>
+          {/* <Playlist /> */}
+        </div>
+      </div>
     </div>
   );
 }
