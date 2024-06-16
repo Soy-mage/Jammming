@@ -3,8 +3,14 @@ import Tracklist from "../tracklist/tracklist.js";
 import styles from "./searchResults.module.css";
 function SearchResults (props) {
     return (
-        <div className={styles.searchResults}>
-        <Tracklist userSearchResults={props.userSearchResults}/>
+        <div className={styles.SearchResults}>
+          {/*<h1>test searchresults</h1>*/}
+        <Tracklist 
+          userSearchResults={props.userSearchResults} 
+          isRemoved={false}
+          onAdd={props.onAdd}
+          onRemove={props.onRemove}
+        />
       </div>
         );
 }
